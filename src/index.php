@@ -1,7 +1,7 @@
 <?php
 
 echo "Pets!<hr>";
-$conn = new mysqli("mysql", "root", ".sweetpwd.", "my_db");
+$conn = new mysqli("mysql-test", "root", "sweetpwd", "test");
 if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
