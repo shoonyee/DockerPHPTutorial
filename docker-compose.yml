@@ -6,7 +6,7 @@ services:
         command: --default-authentication-plugin=mysql_native_password
 #        working_dir: /application
         volumes:
-          - .:/application
+          - .:/var/lib/mysql/data
         restart: always
         environment:
           - MYSQL_ROOT_PASSWORD=.sweetpwd.
@@ -17,12 +17,12 @@ services:
           - "8082:3306"
   website:
     container_name: php72
-    image: tut:php_img
+    image: phpmysql
     build:
       context: ./
     volumes:
       - ./src:/var/www/html/
     ports:
-      - 8000:80
+      - 8080:80
     depends_on:
       - mysql
